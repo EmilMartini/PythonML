@@ -1,5 +1,6 @@
 from matrix import Matrix
 import math
+import os
 
 
 def sigmoid(x):
@@ -77,6 +78,9 @@ class NeuralNetwork:
         # Adjust Hidden -> Output weights
         self.weights_ho.addElementWise(weights_ho_deltas)
 
+        # Adjust Hidden -> Output bias
+        self.bias_o.addElementWise(gradients)
+
         # Transposing the hidden-output weights and calculating those errors
         weights_ho_t = Matrix.Transpose(self.weights_ho)
         hidden_errors = Matrix.Multiply(weights_ho_t, output_errors)
@@ -92,3 +96,7 @@ class NeuralNetwork:
 
         # Adjust Input -> Hidden weights
         self.weights_ih.addElementWise(weights_ih_deltas)
+
+        # Adjust Input -> Hidden bias
+        self.bias_h.addElementWise(hidden_gradient)
+        return output_errors
