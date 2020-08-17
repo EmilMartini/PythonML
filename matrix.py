@@ -43,12 +43,32 @@ class Matrix:
             for j in range(self.columns):
                 val = self.data[i][j]
                 self.data[i][j] = func(val)
+    
+    def Map(m1, func):
+        result = Matrix(m1.rows, m1.columns)
+        for i in range(result.rows):
+            for j in range(result.columns):
+                val = m1.data[i][j]
+                result.data[i][j] = func(val)
+        return result
 
     # Memberfunction to multiply all elements inside this matrix with a given num
     def multiply(self, num):
         for i in range(self.rows):
             for j in range(self.columns):
                 self.data[i][j] = self.data[i][j] * num
+    
+    def multiplyElementWise(self, m2):
+        for i in range(self.rows):
+            for j in range(self.columns):
+                self.data[i][j] = self.data[i][j] * m2.data[i][j] 
+
+    def Subtract(m1, m2):
+        result = Matrix(m1.rows, m1.columns)
+        for i in range(result.rows):
+            for j in range(result.columns):
+                result.data[i][j] = m1.data[i][j] - m2.data[i][j]
+        return result
 
     def FromArray(input_array):
         m = Matrix(len(input_array), 1)
@@ -58,10 +78,6 @@ class Matrix:
 
     # Static function to transpose a e,g 3x2 matrix to a 2x3 matrix and return the result
     def Transpose(m1):
-        if(m1.rows > m1.columns):
-            print("Invalid format of input matrix")
-            return
-
         result = Matrix(m1.columns, m1.rows)
         for i in range(m1.rows):
             for j in range(m1.columns):
@@ -80,6 +96,9 @@ class Matrix:
         return result
 
 
+Matrix.Map = staticmethod(Matrix.Map)
 Matrix.Multiply = staticmethod(Matrix.Multiply)
 Matrix.Transpose = staticmethod(Matrix.Transpose)
 Matrix.FromArray = staticmethod(Matrix.FromArray)
+Matrix.Subtract = staticmethod(Matrix.Subtract)
+Matrix.Transpose = staticmethod(Matrix.Transpose)

@@ -1,8 +1,8 @@
 from neuralnetwork import NeuralNetwork
 from matrix import Matrix
 
-input = [1, 0]
+inputs = [1, 0]
+targets = [1, 0]
 
-nn = NeuralNetwork(2, 2, 1)
-result = nn.feedforward(input)
-print(result)
+nn = NeuralNetwork(2, 2, 1, 0.1)
+nn.train(inputs, targets)
