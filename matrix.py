@@ -29,7 +29,7 @@ class Matrix:
     def addElementWise(self, num):
         for i in range(self.rows):
             for j in range(self.columns):
-                self.data[i][j] + num.data[i][j]
+                self.data[i][j] = self.data[i][j] + num.data[i][j]
 
     def toArray(self):
         arr = []
@@ -43,7 +43,7 @@ class Matrix:
             for j in range(self.columns):
                 val = self.data[i][j]
                 self.data[i][j] = func(val)
-    
+
     def Map(m1, func):
         result = Matrix(m1.rows, m1.columns)
         for i in range(result.rows):
@@ -57,11 +57,11 @@ class Matrix:
         for i in range(self.rows):
             for j in range(self.columns):
                 self.data[i][j] = self.data[i][j] * num
-    
+
     def multiplyElementWise(self, m2):
         for i in range(self.rows):
             for j in range(self.columns):
-                self.data[i][j] = self.data[i][j] * m2.data[i][j] 
+                self.data[i][j] = self.data[i][j] * m2.data[i][j]
 
     def Subtract(m1, m2):
         result = Matrix(m1.rows, m1.columns)

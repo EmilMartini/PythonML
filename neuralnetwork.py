@@ -5,8 +5,10 @@ import math
 def sigmoid(x):
     return 1 / (1 + math.exp(-x))
 
+
 def derivsigmoid(x):
     return x * (1 - x)
+
 
 class NeuralNetwork:
 
@@ -44,8 +46,6 @@ class NeuralNetwork:
         return output.toArray()
 
     def train(self, inputs, targets):
-        
-        self.weights_ho.log()
         # Generating the hidden outputs
         inputs = Matrix.FromArray(inputs)
         hidden = Matrix.Multiply(self.weights_ih, inputs)
@@ -92,6 +92,3 @@ class NeuralNetwork:
 
         # Adjust Input -> Hidden weights
         self.weights_ih.addElementWise(weights_ih_deltas)
-
-        self.weights_ho.log()
-            

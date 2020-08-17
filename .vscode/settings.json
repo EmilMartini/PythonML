@@ -6,7 +6,7 @@
         "~/google-cloud-sdk/platform/google_appengine/lib/endpoints-1.0",
         "~/google-cloud-sdk/platform/google_appengine/lib/protorpc-1.0"
     ],
-    "python.pythonPath": "C:\\Users\\emilm\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe",
+    "python.pythonPath": "C:\\Users\\Emil\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe",
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": false,
     "python.linting.mypyEnabled": false
